@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b35">
+  <meta name="description" content="A straightforward way to submit and track public service complaints.">
+  <title>Recent activity — JanSuno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="citizen-page citizen-page-activity">
+  <div class="citizen-sidebar-overlay" id="citizenSidebarOverlay"></div>
+  <aside class="citizen-sidebar" id="citizenSidebar" aria-label="Citizen navigation">
+    <div class="citizen-sidebar-head">
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>CITIZEN PORTAL</small></span>
+      </a>
+      <button class="sidebar-close" id="citizenSidebarClose" aria-label="Close sidebar">×</button>
+    </div>
+    <div class="citizen-sidebar-label">CITIZEN SERVICES</div>
+    <nav class="citizen-side-nav" aria-label="Citizen pages">
+      <a href="/" class="citizen-side-link"><span>⌂</span> Home</a>
+      <a href="/submit" class="citizen-side-link"><span>＋</span> Submit a complaint</a>
+      <a href="/track" class="citizen-side-link"><span>⌕</span> Track a complaint</a>
+      <a href="/activity" class="citizen-side-link"><span>▤</span> Recent activity</a>
+      <a href="/how-it-works" class="citizen-side-link"><span>◎</span> How it works</a>
+      <a href="/help" class="citizen-side-link"><span>?</span> Help & support</a>
+    </nav>
+    <div class="citizen-sidebar-label sidebar-admin-label">MANAGEMENT</div>
+    <a class="citizen-admin-link" href="/admin"><span class="admin-link-icon">▦</span><span><strong>Admin workspace</strong><small>For authorised staff</small></span><span class="admin-link-arrow">↗</span></a>
+    <div class="citizen-sidebar-bottom">
+      <span class="sidebar-status-dot"></span>
+      <span><strong>Citizen portal</strong><small>Public grievance assistant</small></span>
+    </div>
+  </aside>
+  <div class="topline"><div class="wrap topline-inner"><span><span class="live-dot"></span> Citizen services portal</span><span class="topline-right">A clearer route from complaint to action <span aria-hidden="true">↗</span></span></div></div>
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <button class="citizen-menu-toggle" id="citizenMenuToggle" aria-label="Open citizen navigation" aria-expanded="false">☰</button>
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>PUBLIC GRIEVANCE ASSISTANT</small></span>
+      </a>
+      <a class="nav-admin-link" href="/admin">Admin <span>↗</span></a>
+      <a class="button button-dark nav-cta" href="/submit">Raise a complaint <span>↗</span></a>
+    </div>
+  </header>
+<main class="citizen-page-main">
+<section class="inner-page-hero"><div class="wrap"><span class="section-kicker">CITIZEN SERVICES / PUBLIC ACTIVITY</span><h1>Recent activity</h1><p>Recent submissions in this project database. Personal contact details and complaint descriptions are not shown here.</p></div></section>
+<section class="activity-section activity-page-section" id="recent"><div class="wrap"><div class="section-head"><div><span class="section-kicker">TRANSPARENCY IN PRACTICE</span><h2>Latest submissions</h2><p>A snapshot of the latest reports in this project database.</p></div><span class="activity-badge"><span class="live-dot"></span> Updates from database</span></div><div class="activity-table-wrap"><table class="activity-table"><thead><tr><th>REFERENCE</th><th>ISSUE</th><th>AREA</th><th>STATUS</th><th>SUBMITTED</th></tr></thead><tbody id="recentRows"><tr><td colspan="5" class="table-empty">Loading recent submissions…</td></tr></tbody></table></div><p class="privacy-note"><span>◉</span> This list intentionally omits names, emails and complaint descriptions to protect privacy.</p></div></section>
+</main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/citizen-nav.js"></script>
+<script>
+const $=(s)=>document.querySelector(s);function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function date(v){return v?new Intl.DateTimeFormat("en-IN",{day:"2-digit",month:"short",year:"numeric"}).format(new Date(v)):"—";}
+const classes={"Submitted":"status-submitted","Under Review":"status-review","In Progress":"status-progress","Resolved":"status-resolved","Closed":"status-closed"};
+function pill(s){return `<span class="status ${classes[s]||"status-submitted"}"><i></i>${esc(s)}</span>`;}
+fetch("/api/complaints/recent").then(r=>r.json()).then(rows=>{$("#recentRows").innerHTML=rows.length?rows.map(c=>`<tr><td>${esc(c.reference)}</td><td class="issue-name">${esc(c.category)}</td><td>${esc(c.area)}</td><td>${pill(c.status)}</td><td>${date(c.createdAt)}</td></tr>`).join(""):`<tr><td colspan="5" class="table-empty">No submissions yet.</td></tr>`;}).catch(()=>$("#recentRows").innerHTML='<tr><td colspan="5" class="table-empty">Could not load recent submissions. Check the server and database.</td></tr>');
+</script>
+</body>
+</html>

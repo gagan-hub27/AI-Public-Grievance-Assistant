@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b35">
+  <meta name="description" content="A straightforward way to submit and track public service complaints.">
+  <title>Track a complaint — JanSuno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="citizen-page citizen-page-track">
+  <div class="citizen-sidebar-overlay" id="citizenSidebarOverlay"></div>
+  <aside class="citizen-sidebar" id="citizenSidebar" aria-label="Citizen navigation">
+    <div class="citizen-sidebar-head">
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>CITIZEN PORTAL</small></span>
+      </a>
+      <button class="sidebar-close" id="citizenSidebarClose" aria-label="Close sidebar">×</button>
+    </div>
+    <div class="citizen-sidebar-label">CITIZEN SERVICES</div>
+    <nav class="citizen-side-nav" aria-label="Citizen pages">
+      <a href="/" class="citizen-side-link"><span>⌂</span> Home</a>
+      <a href="/submit" class="citizen-side-link"><span>＋</span> Submit a complaint</a>
+      <a href="/track" class="citizen-side-link"><span>⌕</span> Track a complaint</a>
+      <a href="/activity" class="citizen-side-link"><span>▤</span> Recent activity</a>
+      <a href="/how-it-works" class="citizen-side-link"><span>◎</span> How it works</a>
+      <a href="/help" class="citizen-side-link"><span>?</span> Help & support</a>
+    </nav>
+    <div class="citizen-sidebar-label sidebar-admin-label">MANAGEMENT</div>
+    <a class="citizen-admin-link" href="/admin"><span class="admin-link-icon">▦</span><span><strong>Admin workspace</strong><small>For authorised staff</small></span><span class="admin-link-arrow">↗</span></a>
+    <div class="citizen-sidebar-bottom">
+      <span class="sidebar-status-dot"></span>
+      <span><strong>Citizen portal</strong><small>Public grievance assistant</small></span>
+    </div>
+  </aside>
+  <div class="topline"><div class="wrap topline-inner"><span><span class="live-dot"></span> Citizen services portal</span><span class="topline-right">A clearer route from complaint to action <span aria-hidden="true">↗</span></span></div></div>
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <button class="citizen-menu-toggle" id="citizenMenuToggle" aria-label="Open citizen navigation" aria-expanded="false">☰</button>
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>PUBLIC GRIEVANCE ASSISTANT</small></span>
+      </a>
+      <a class="nav-admin-link" href="/admin">Admin <span>↗</span></a>
+      <a class="button button-dark nav-cta" href="/submit">Raise a complaint <span>↗</span></a>
+    </div>
+  </header>
+<main class="citizen-page-main">
+<section class="inner-page-hero"><div class="wrap"><span class="section-kicker">CITIZEN SERVICES / CASE STATUS</span><h1>Track a complaint</h1><p>Use the reference number from your submission confirmation to see the latest status and recorded updates.</p></div></section>
+<section class="track-section track-page-section" id="track"><div class="wrap track-grid"><div class="track-copy"><span class="section-kicker">YOUR COMPLAINT, IN VIEW</span><h2>Pick up where<br><em>you left off.</em></h2><p>Enter your complaint reference number below. Reference IDs are not case-sensitive.</p><form class="track-form" id="trackForm"><label class="sr-only" for="referenceInput">Complaint reference number</label><span class="search-icon">⌕</span><input id="referenceInput" placeholder="e.g. PG-7K2M-A91B" required autocomplete="off"><button class="button button-lime" type="submit" id="trackButton">Track <span>→</span></button></form><p class="track-hint"><span>ⓘ</span> Keep your reference ID private.</p><div class="track-result" id="trackResult" aria-live="polite"></div></div><div class="track-art"><div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div><div class="track-center"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9 82 21v25c0 22-14 35-32 45C32 81 18 68 18 46V21z" fill="none" stroke="currentColor" stroke-width="4"/><path d="m33 49 11 11 24-26" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="orbit-chip chip-one"><span class="chip-icon">✓</span><span><strong>Complaint received</strong><small>Your report is on record</small></span></div><div class="orbit-chip chip-two"><span class="chip-icon chip-icon-lime">↗</span><span><strong>Status updates</strong><small>See what changed</small></span></div><div class="orbit-chip chip-three"><span class="chip-icon chip-icon-amber">◎</span><span><strong>Reference ID</strong><small>Your follow-up key</small></span></div></div></div></section>
+</main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/citizen-nav.js"></script>
+<script>
+const $=(s)=>document.querySelector(s);function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function date(v){return v?new Intl.DateTimeFormat("en-IN",{day:"2-digit",month:"short",year:"numeric"}).format(new Date(v)):"—";}
+const classes={"Submitted":"status-submitted","Under Review":"status-review","In Progress":"status-progress","Resolved":"status-resolved","Closed":"status-closed"};
+function pill(s){return `<span class="status ${classes[s]||"status-submitted"}"><i></i>${esc(s)}</span>`;}
+$("#trackForm").addEventListener("submit",async e=>{e.preventDefault();const btn=$("#trackButton"),result=$("#trackResult"),ref=$("#referenceInput").value.trim().toUpperCase();btn.disabled=true;btn.textContent="Checking…";try{const r=await fetch(`/api/complaints/${encodeURIComponent(ref)}`),d=await r.json();if(!r.ok)throw new Error(d.message||"Complaint not found.");const c=d.complaint;const updates=[...(c.updates||[])].sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));result.innerHTML=`<h4>${esc(c.reference)}</h4><p>${esc(c.category)} · ${esc(c.area)}</p>${pill(c.status)}<p><strong>Assigned department:</strong> ${esc(c.department)}</p><p><strong>Submitted:</strong> ${date(c.createdAt)}</p><div class="timeline">${updates.map(u=>`<div class="timeline-item"><strong>${esc(u.status)} · ${date(u.updatedAt)}</strong><small>${esc(u.note||"Status recorded.")}</small></div>`).join("")}</div>`;result.className="track-result show";}catch(err){result.innerHTML=`<h4>We couldn't find that reference</h4><p>${esc(err.message)}</p>`;result.className="track-result show";}finally{btn.disabled=false;btn.innerHTML='Track <span>→</span>';}});</script>
+</body>
+</html>

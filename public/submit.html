@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b35">
+  <meta name="description" content="A straightforward way to submit and track public service complaints.">
+  <title>Submit a complaint — JanSuno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="citizen-page citizen-page-submit">
+  <div class="citizen-sidebar-overlay" id="citizenSidebarOverlay"></div>
+  <aside class="citizen-sidebar" id="citizenSidebar" aria-label="Citizen navigation">
+    <div class="citizen-sidebar-head">
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>CITIZEN PORTAL</small></span>
+      </a>
+      <button class="sidebar-close" id="citizenSidebarClose" aria-label="Close sidebar">×</button>
+    </div>
+    <div class="citizen-sidebar-label">CITIZEN SERVICES</div>
+    <nav class="citizen-side-nav" aria-label="Citizen pages">
+      <a href="/" class="citizen-side-link"><span>⌂</span> Home</a>
+      <a href="/submit" class="citizen-side-link"><span>＋</span> Submit a complaint</a>
+      <a href="/track" class="citizen-side-link"><span>⌕</span> Track a complaint</a>
+      <a href="/activity" class="citizen-side-link"><span>▤</span> Recent activity</a>
+      <a href="/how-it-works" class="citizen-side-link"><span>◎</span> How it works</a>
+      <a href="/help" class="citizen-side-link"><span>?</span> Help & support</a>
+    </nav>
+    <div class="citizen-sidebar-label sidebar-admin-label">MANAGEMENT</div>
+    <a class="citizen-admin-link" href="/admin"><span class="admin-link-icon">▦</span><span><strong>Admin workspace</strong><small>For authorised staff</small></span><span class="admin-link-arrow">↗</span></a>
+    <div class="citizen-sidebar-bottom">
+      <span class="sidebar-status-dot"></span>
+      <span><strong>Citizen portal</strong><small>Public grievance assistant</small></span>
+    </div>
+  </aside>
+  <div class="topline"><div class="wrap topline-inner"><span><span class="live-dot"></span> Citizen services portal</span><span class="topline-right">A clearer route from complaint to action <span aria-hidden="true">↗</span></span></div></div>
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <button class="citizen-menu-toggle" id="citizenMenuToggle" aria-label="Open citizen navigation" aria-expanded="false">☰</button>
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>PUBLIC GRIEVANCE ASSISTANT</small></span>
+      </a>
+      <a class="nav-admin-link" href="/admin">Admin <span>↗</span></a>
+      <a class="button button-dark nav-cta" href="/submit">Raise a complaint <span>↗</span></a>
+    </div>
+  </header>
+<main class="citizen-page-main">
+<section class="inner-page-hero"><div class="wrap"><span class="section-kicker">CITIZEN SERVICES / NEW REPORT</span><h1>Submit a complaint</h1><p>Give us the details you have. Your report will receive a reference ID so you can follow its progress.</p></div></section>
+    <section class="content-section page-content-section" id="submit">
+      <div class="wrap content-grid">
+        <div class="section-intro">
+          <span class="section-kicker">01 / MAKE YOURSELF HEARD</span>
+          <h2>Tell us what's<br><em>not working.</em></h2>
+          <p>Share the details you have. We'll create a reference number so you can return to your complaint without starting over.</p>
+          <div class="side-note"><span class="side-note-icon">✳</span><div><strong>Before you begin</strong><p>Be specific about the location and what needs attention. Please don't include passwords or other sensitive personal information.</p></div></div>
+          <div class="steps-list">
+            <div class="mini-step"><span>1</span><div><strong>Describe the issue</strong><small>Tell us what happened and where.</small></div></div>
+            <div class="mini-step"><span>2</span><div><strong>Get your reference ID</strong><small>Save it for a quick status check.</small></div></div>
+            <div class="mini-step"><span>3</span><div><strong>Follow the progress</strong><small>See the latest status and updates.</small></div></div>
+          </div>
+        </div>
+        <div class="form-card">
+          <div class="form-heading"><div><span class="section-kicker">NEW SUBMISSION</span><h3>Complaint details</h3></div><span class="required-note"><b>*</b> Required fields</span></div>
+          <form id="complaintForm">
+            <div class="form-row">
+              <label>Full name <b>*</b><input name="name" autocomplete="name" placeholder="e.g. Gurpreet Singh" required maxlength="100"></label>
+              <label>Email address <b>*</b><input name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="150"></label>
+            </div>
+            <div class="form-row">
+              <label>Phone number <span class="optional">(optional)</span><input name="phone" autocomplete="tel" placeholder="+91 98765 43210" maxlength="20"></label>
+              <label>Issue category <b>*</b><select name="category" id="category" required><option value="">Choose a category</option><option>Roads & Transport</option><option>Water Supply</option><option>Electricity</option><option>Sanitation</option><option>Public Safety</option><option>Parks & Public Spaces</option><option>Other</option></select></label>
+            </div>
+            <div class="smart-route" id="smartRoute" aria-live="polite"><span class="route-spark">✳</span><span><strong>Department routing</strong><small>Choose a category to see the suggested department.</small></span><span class="route-arrow">↗</span></div>
+            <label>Area / neighbourhood <b>*</b><input name="area" placeholder="e.g. Model Town, Ward 12" required maxlength="150"></label>
+            <label>Exact location <span class="optional">(optional)</span><input name="address" placeholder="Street, landmark or nearby building" maxlength="300"></label>
+            <label>What happened? <b>*</b><textarea name="description" rows="4" minlength="20" maxlength="2500" placeholder="Describe the issue, when you noticed it, and how it affects the area..." required></textarea><span class="field-hint"><span>At least 20 characters</span><span id="charCount">0 / 2500</span></span></label>
+            <div class="priority-row"><div><strong>Is there an urgent safety concern?</strong><small>Use high priority only when people may be at immediate risk.</small></div><label class="toggle-wrap"><input type="checkbox" id="urgentToggle"><span class="toggle"></span><span class="toggle-label" id="priorityLabel">Normal</span></label></div>
+            <div class="form-consent"><span class="consent-check">✓</span><p>I confirm these details are accurate to the best of my knowledge.</p></div>
+            <button class="button button-dark submit-button" type="submit" id="submitButton">Send complaint <span>↗</span></button>
+            <p class="form-footnote">Your details are used for handling this complaint in this demo application.</p>
+            <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+</main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/citizen-nav.js"></script>
+<script>
+const $=(s)=>document.querySelector(s);
+const departmentMap={"Roads & Transport":"Public Works Department","Water Supply":"Water & Sewerage Department","Electricity":"Electricity Services","Sanitation":"Sanitation & Waste Management","Public Safety":"Public Safety Department","Parks & Public Spaces":"Parks & Public Spaces","Other":"Public Grievance Cell"};
+function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+async function api(url,opts={}){const r=await fetch(url,{...opts,headers:{"Content-Type":"application/json",...(opts.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.message||"Request failed.");return d;}
+$("#category").addEventListener("change",()=>{const dept=departmentMap[$("#category").value];$("#smartRoute").innerHTML=dept?`<span class="route-spark">✳</span><span><strong>Suggested department</strong><small>${esc(dept)} · based on your selected category</small></span><span class="route-arrow">↗</span>`:`<span class="route-spark">✳</span><span><strong>Department routing</strong><small>Choose a category to see the suggested department.</small></span><span class="route-arrow">↗</span>`;});
+$("#urgentToggle").addEventListener("change",()=>$("#priorityLabel").textContent=$("#urgentToggle").checked?"High priority":"Normal");
+const desc=$('textarea[name="description"]');desc.addEventListener("input",()=>$("#charCount").textContent=`${desc.value.length} / 2500`);
+$("#complaintForm").addEventListener("submit",async e=>{e.preventDefault();const form=e.currentTarget,btn=$("#submitButton"),msg=$("#formMessage");const payload=Object.fromEntries(new FormData(form).entries());payload.priority=$("#urgentToggle").checked?"High":"Normal";btn.disabled=true;btn.textContent="Submitting…";msg.className="form-message";try{const out=await api("/api/complaints",{method:"POST",body:JSON.stringify(payload)});msg.className="form-message success show";msg.innerHTML=`<strong>Complaint received.</strong> Your reference ID is <strong>${esc(out.complaint.reference)}</strong>. Save it to track updates.`;form.reset();$("#charCount").textContent="0 / 2500";$("#priorityLabel").textContent="Normal";$("#smartRoute").innerHTML='<span class="route-spark">✳</span><span><strong>Department routing</strong><small>Choose a category to see the suggested department.</small></span><span class="route-arrow">↗</span>';msg.scrollIntoView({behavior:"smooth",block:"nearest"});}catch(err){msg.className="form-message error show";msg.textContent=err.message;}finally{btn.disabled=false;btn.innerHTML='Send complaint <span>↗</span>';}});</script>
+</body>
+</html>

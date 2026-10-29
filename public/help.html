@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b35">
+  <meta name="description" content="A straightforward way to submit and track public service complaints.">
+  <title>Help & support — JanSuno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="citizen-page citizen-page-help">
+  <div class="citizen-sidebar-overlay" id="citizenSidebarOverlay"></div>
+  <aside class="citizen-sidebar" id="citizenSidebar" aria-label="Citizen navigation">
+    <div class="citizen-sidebar-head">
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>CITIZEN PORTAL</small></span>
+      </a>
+      <button class="sidebar-close" id="citizenSidebarClose" aria-label="Close sidebar">×</button>
+    </div>
+    <div class="citizen-sidebar-label">CITIZEN SERVICES</div>
+    <nav class="citizen-side-nav" aria-label="Citizen pages">
+      <a href="/" class="citizen-side-link"><span>⌂</span> Home</a>
+      <a href="/submit" class="citizen-side-link"><span>＋</span> Submit a complaint</a>
+      <a href="/track" class="citizen-side-link"><span>⌕</span> Track a complaint</a>
+      <a href="/activity" class="citizen-side-link"><span>▤</span> Recent activity</a>
+      <a href="/how-it-works" class="citizen-side-link"><span>◎</span> How it works</a>
+      <a href="/help" class="citizen-side-link"><span>?</span> Help & support</a>
+    </nav>
+    <div class="citizen-sidebar-label sidebar-admin-label">MANAGEMENT</div>
+    <a class="citizen-admin-link" href="/admin"><span class="admin-link-icon">▦</span><span><strong>Admin workspace</strong><small>For authorised staff</small></span><span class="admin-link-arrow">↗</span></a>
+    <div class="citizen-sidebar-bottom">
+      <span class="sidebar-status-dot"></span>
+      <span><strong>Citizen portal</strong><small>Public grievance assistant</small></span>
+    </div>
+  </aside>
+  <div class="topline"><div class="wrap topline-inner"><span><span class="live-dot"></span> Citizen services portal</span><span class="topline-right">A clearer route from complaint to action <span aria-hidden="true">↗</span></span></div></div>
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <button class="citizen-menu-toggle" id="citizenMenuToggle" aria-label="Open citizen navigation" aria-expanded="false">☰</button>
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>PUBLIC GRIEVANCE ASSISTANT</small></span>
+      </a>
+      <a class="nav-admin-link" href="/admin">Admin <span>↗</span></a>
+      <a class="button button-dark nav-cta" href="/submit">Raise a complaint <span>↗</span></a>
+    </div>
+  </header>
+<main class="citizen-page-main">
+<section class="inner-page-hero"><div class="wrap"><span class="section-kicker">CITIZEN SERVICES / SUPPORT</span><h1>Help & support</h1><p>Some guidance for submitting a useful complaint and following it up.</p></div></section>
+<section class="help-page-section"><div class="wrap help-grid"><article class="help-card"><span class="help-card-icon">✳</span><h2>What should I include?</h2><p>Describe what happened, where it happened, when you noticed it, and how it affects the area. Clear details help a team understand the concern.</p></article><article class="help-card"><span class="help-card-icon">◎</span><h2>How do I track it?</h2><p>After submission, copy the reference ID shown in the confirmation message. Use the Track a Complaint page to view its latest status.</p><a class="button button-dark" href="/track">Track a complaint <span>→</span></a></article><article class="help-card"><span class="help-card-icon">⌂</span><h2>Where is it routed?</h2><p>The current prototype suggests a department from the selected category. The mapping is rule-based and may need adjustment for a real local authority.</p><a class="button button-dark" href="/submit">Submit a complaint <span>↗</span></a></article><article class="help-card urgent-help"><span class="help-card-icon">!</span><h2>Urgent or life-threatening?</h2><p>This academic prototype is not an emergency service. Contact the appropriate emergency service directly for immediate danger.</p></article></div></section>
+</main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/citizen-nav.js"></script>
+
+</body>
+</html>

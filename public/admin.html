@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173a32">
+  <title>Admin Workspace — JanSuno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="JanSuno citizen site">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>ADMIN WORKSPACE</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Admin pages">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
+        <button class="nav-item" data-page="complaints"><span class="nav-icon">▤</span> Complaint register <span class="nav-count" id="sideComplaintCount">—</span></button>
+        <button class="nav-item" data-page="departments"><span class="nav-icon">⌂</span> Departments</button>
+        <button class="nav-item" data-page="reports"><span class="nav-icon">▥</span> Reports & insights</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-help"><span class="help-icon">?</span><div><strong>Need the public view?</strong><small>Open the citizen portal.</small><a href="/">Go to portal ↗</a></div></div>
+        <div class="admin-profile"><span class="profile-avatar">A</span><div><strong>Grievance Admin</strong><small id="connectionLabel">Not connected</small></div><button id="logoutButton" title="Clear admin key" aria-label="Clear admin key">↪</button></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle sidebar">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbCurrent">Dashboard</strong></div>
+        <div class="topbar-right"><span class="secure-label"><i></i> Admin area</span><a href="/" class="portal-link">View citizen portal ↗</a></div>
+      </header>
+
+      <div class="page-content">
+        <section class="page-view active" id="page-dashboard">
+          <div class="page-heading"><div><span class="eyebrow">OVERVIEW / YOUR WORKSPACE</span><h1>Good morning, Admin.</h1><p>Here's a clear picture of the complaints coming through JanSuno.</p></div><button class="button button-dark" id="refreshDashboard">↻ <span>Refresh data</span></button></div>
+          <div class="metric-grid">
+            <article class="metric-card"><div class="metric-top"><span>Total complaints</span><span class="metric-icon mint">▤</span></div><strong id="metricTotal">—</strong><small>All records in MongoDB</small></article>
+            <article class="metric-card"><div class="metric-top"><span>Awaiting review</span><span class="metric-icon sand">◷</span></div><strong id="metricReview">—</strong><small>Submitted or under review</small></article>
+            <article class="metric-card"><div class="metric-top"><span>In progress</span><span class="metric-icon blue">↗</span></div><strong id="metricProgress">—</strong><small>Assigned for action</small></article>
+            <article class="metric-card"><div class="metric-top"><span>Resolved / closed</span><span class="metric-icon green">✓</span></div><strong id="metricResolved">—</strong><small>Marked complete</small></article>
+          </div>
+          <div class="dashboard-grid">
+            <article class="panel recent-panel"><div class="panel-heading"><div><h2>Latest complaints</h2><p>Most recent reports added to the register.</p></div><button class="link-button" data-goto="complaints">View all →</button></div><div class="table-wrap"><table><thead><tr><th>REFERENCE</th><th>ISSUE / AREA</th><th>STATUS</th><th>DATE</th></tr></thead><tbody id="dashboardRows"><tr><td colspan="4" class="empty">Connect the admin workspace to load records.</td></tr></tbody></table></div></article>
+            <article class="panel distribution-panel"><div class="panel-heading"><div><h2>Current workload</h2><p>Complaints by status.</p></div></div><div id="statusDistribution" class="distribution"><p class="empty">Waiting for database data…</p></div><div class="panel-note"><span>✳</span><p>Use the complaint register to assign a new status and add a progress note.</p></div></article>
+          </div>
+          <div class="notice-line"><span>ⓘ</span> This is an academic project prototype. Use a private admin key and do not expose this site publicly without adding full authentication and access controls.</div>
+        </section>
+
+        <section class="page-view" id="page-complaints">
+          <div class="page-heading"><div><span class="eyebrow">CASE MANAGEMENT / RECORDS</span><h1>Complaint register</h1><p>Search submitted concerns and record the latest action taken.</p></div><button class="button button-dark" id="reloadComplaints">↻ <span>Refresh list</span></button></div>
+          <div class="filter-bar"><label class="search-field"><span>⌕</span><input id="searchComplaints" placeholder="Search reference, citizen, email or area…"></label><select id="filterStatus"><option value="">All statuses</option><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Closed</option></select><select id="filterCategory"><option value="">All categories</option><option>Roads & Transport</option><option>Water Supply</option><option>Electricity</option><option>Sanitation</option><option>Public Safety</option><option>Parks & Public Spaces</option><option>Other</option></select></div>
+          <div class="panel"><div class="panel-heading"><div><h2>All records</h2><p id="complaintCountLabel">Records are available after admin connection.</p></div><span class="table-tag">PRIVATE ADMIN VIEW</span></div><div class="table-wrap"><table class="wide-table"><thead><tr><th>REFERENCE / CITIZEN</th><th>ISSUE</th><th>AREA</th><th>PRIORITY</th><th>STATUS</th><th>SUBMITTED</th><th>ACTION</th></tr></thead><tbody id="complaintRows"><tr><td colspan="7" class="empty">Enter your admin key to load the complaint register.</td></tr></tbody></table></div></div>
+        </section>
+
+        <section class="page-view" id="page-departments">
+          <div class="page-heading"><div><span class="eyebrow">SERVICE DIRECTORY / ROUTING</span><h1>Departments</h1><p>See how complaint categories are mapped to the responsible service teams.</p></div></div>
+          <div class="department-note"><span>✳</span><div><strong>How routing works in this version</strong><p>The category selected by a citizen maps to a suggested department using simple rules in the Node.js backend. This is not a trained AI classifier yet, and the mapping can be changed in <code>server.js</code>.</p></div></div>
+          <div class="department-grid" id="departmentGrid"></div>
+        </section>
+
+        <section class="page-view" id="page-reports">
+          <div class="page-heading"><div><span class="eyebrow">OVERVIEW / SERVICE INSIGHTS</span><h1>Reports & insights</h1><p>A lightweight summary of the complaint records currently stored in MongoDB.</p></div><button class="button button-outline" id="exportCsv">↓ <span>Export CSV</span></button></div>
+          <div class="report-summary" id="reportSummary"></div>
+          <div class="panel report-panel"><div class="panel-heading"><div><h2>Category breakdown</h2><p>Volume of complaints by selected category.</p></div></div><div id="categoryBars" class="category-bars"><p class="empty">Connect to load report data.</p></div></div>
+          <p class="report-footnote">These figures are calculated from the current project database. They are not official public-service performance statistics.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="keyModal">
+    <div class="key-modal" role="dialog" aria-modal="true" aria-labelledby="keyModalTitle">
+      <div class="modal-logo">⌁</div><span class="eyebrow">SECURE WORKSPACE</span><h2 id="keyModalTitle">Connect as an administrator</h2><p>Enter the <code>ADMIN_KEY</code> value from your server-side <code>.env</code> file. It is sent only to your local backend for protected admin requests.</p>
+      <form id="keyForm"><label for="adminKeyInput">Admin key</label><input type="password" id="adminKeyInput" placeholder="Enter your private admin key" autocomplete="current-password" required><button class="button button-dark" type="submit">Connect workspace <span>→</span></button><div class="modal-error" id="keyError" role="status"></div></form>
+      <small class="modal-tip">If you haven't set one yet, add <code>ADMIN_KEY=your-private-key</code> to <code>.env</code> and restart <code>npm start</code>.</small>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="updateModal">
+    <div class="key-modal update-modal" role="dialog" aria-modal="true" aria-labelledby="updateTitle">
+      <button class="modal-close" id="closeUpdate" aria-label="Close dialog">×</button><span class="eyebrow">CASE UPDATE</span><h2 id="updateTitle">Update complaint</h2><p id="updateReference"></p>
+      <form id="updateForm"><input type="hidden" id="updateRef"><label for="newStatus">New status</label><select id="newStatus" required><option>Submitted</option><option>Under Review</option><option>In Progress</option><option>Resolved</option><option>Closed</option></select><label for="updateNote">Progress note</label><textarea id="updateNote" rows="3" maxlength="500" placeholder="Briefly record the action taken…" required></textarea><button class="button button-dark" type="submit">Save update <span>✓</span></button><div class="modal-error" id="updateError" role="status"></div></form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/admin.js"></script>
+</body>
+</html>

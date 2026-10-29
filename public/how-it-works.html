@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b35">
+  <meta name="description" content="A straightforward way to submit and track public service complaints.">
+  <title>How it works — JanSuno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="citizen-page citizen-page-how">
+  <div class="citizen-sidebar-overlay" id="citizenSidebarOverlay"></div>
+  <aside class="citizen-sidebar" id="citizenSidebar" aria-label="Citizen navigation">
+    <div class="citizen-sidebar-head">
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>CITIZEN PORTAL</small></span>
+      </a>
+      <button class="sidebar-close" id="citizenSidebarClose" aria-label="Close sidebar">×</button>
+    </div>
+    <div class="citizen-sidebar-label">CITIZEN SERVICES</div>
+    <nav class="citizen-side-nav" aria-label="Citizen pages">
+      <a href="/" class="citizen-side-link"><span>⌂</span> Home</a>
+      <a href="/submit" class="citizen-side-link"><span>＋</span> Submit a complaint</a>
+      <a href="/track" class="citizen-side-link"><span>⌕</span> Track a complaint</a>
+      <a href="/activity" class="citizen-side-link"><span>▤</span> Recent activity</a>
+      <a href="/how-it-works" class="citizen-side-link"><span>◎</span> How it works</a>
+      <a href="/help" class="citizen-side-link"><span>?</span> Help & support</a>
+    </nav>
+    <div class="citizen-sidebar-label sidebar-admin-label">MANAGEMENT</div>
+    <a class="citizen-admin-link" href="/admin"><span class="admin-link-icon">▦</span><span><strong>Admin workspace</strong><small>For authorised staff</small></span><span class="admin-link-arrow">↗</span></a>
+    <div class="citizen-sidebar-bottom">
+      <span class="sidebar-status-dot"></span>
+      <span><strong>Citizen portal</strong><small>Public grievance assistant</small></span>
+    </div>
+  </aside>
+  <div class="topline"><div class="wrap topline-inner"><span><span class="live-dot"></span> Citizen services portal</span><span class="topline-right">A clearer route from complaint to action <span aria-hidden="true">↗</span></span></div></div>
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <button class="citizen-menu-toggle" id="citizenMenuToggle" aria-label="Open citizen navigation" aria-expanded="false">☰</button>
+      <a class="brand" href="#" aria-label="JanSuno home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 11.5 20 4l13 7.5v15L20 34l-13-7.5z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m12 20 5.2 5.2L28.5 14" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong>JanSuno</strong><small>PUBLIC GRIEVANCE ASSISTANT</small></span>
+      </a>
+      <a class="nav-admin-link" href="/admin">Admin <span>↗</span></a>
+      <a class="button button-dark nav-cta" href="/submit">Raise a complaint <span>↗</span></a>
+    </div>
+  </header>
+<main class="citizen-page-main">
+<section class="inner-page-hero"><div class="wrap"><span class="section-kicker">CITIZEN SERVICES / A SIMPLE PROCESS</span><h1>How it works</h1><p>A clear record of what you've raised and where it stands, from submission to status updates.</p></div></section>
+<section class="how-section how-page-section" id="how-it-works"><div class="wrap"><div class="section-head"><div><span class="section-kicker">THREE SIMPLE STEPS</span><h2>From concern to action.</h2></div><p class="how-intro">No complicated steps. Just a clear record of what you've raised and where it stands.</p></div><div class="how-cards"><article class="how-card"><div class="how-number">01</div><div class="how-icon">↗</div><h3>Raise the issue</h3><p>Describe the problem and its location. The form suggests a relevant department based on your category.</p><span class="how-bottom">A record is created <span>→</span></span></article><article class="how-card"><div class="how-number">02</div><div class="how-icon">◎</div><h3>Get a reference</h3><p>Every submission receives a unique ID, making it easier to find your complaint later.</p><span class="how-bottom">One ID, one record <span>→</span></span></article><article class="how-card"><div class="how-number">03</div><div class="how-icon">✓</div><h3>Follow the updates</h3><p>Check the latest status and any notes recorded by the grievance team.</p><span class="how-bottom">Know what's next <span>→</span></span></article></div></div></section>
+</main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/citizen-nav.js"></script>
+
+</body>
+</html>
